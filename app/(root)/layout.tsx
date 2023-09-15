@@ -27,13 +27,11 @@ export default function RootLayout({
           {/* <h1>Hello World!</h1> */}
           <Topbar />
 
-          <main>
+          <main className='flex flex-row bg-black'>
             <LeftSidebar />
 
             <section className='main-container'>
-              <div className='w-full max-w-4x1'>
-                {children}
-              </div>
+              <div className='w-full max-w-4x1'>{children}</div>
             </section>
 
             <RightSidebar />
