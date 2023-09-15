@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google';
 import '../globals.css';
 
 export const metadata = {
-  title: 'CohortCollab',
+  title: 'CohortCollab | Authentication',
   description: 'Milestone 3 MERN project for UNLV bootcamp w/ Nextjs',
 };
 

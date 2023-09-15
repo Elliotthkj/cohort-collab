@@ -2,3 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+.leftbar-height {
+  height: calc(100vh - 64px);
+}
