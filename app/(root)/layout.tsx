@@ -23,15 +23,15 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang='en'>
-        <body className={inter.className}>
+        <body className={`${inter.className} h-full`}>
           {/* <h1>Hello World!</h1> */}
           <Topbar />
 
-          <main className='flex flex-row bg-black'>
+          <main className='flex flex-row bg-black h-full'>
             <LeftSidebar />
 
-            <section className='main-container'>
-              <div className='w-full max-w-4x1'>{children}</div>
+            <section className='h-full'>
+              <div className='w-full max-w-4x1 h-full'>{children}</div>
             </section>
 
             <RightSidebar />

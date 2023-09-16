@@ -15,6 +15,8 @@ import { Input } from '@/components/ui/input';
 import { UserValidation } from '@/lib/validations/user';
 import * as z from 'zod';
 import { Button } from '@/components/ui/button';
+import { updateUser } from '@/lib/actions/user.actions';
+import { usePathname, useRouter } from 'next/navigation';
 
 interface Props {
   user: {
@@ -29,21 +31,31 @@ interface Props {
 }
 
 const AccountProfile = ({ user, btnTitle }: Props) => {
+  const router = useRouter();
+  const pathname = usePathname();
+
   const form = useForm({
     resolver: zodResolver(UserValidation),
     defaultValues: {
-      // profile_photo: '',
       name: '',
       username: '',
-      // bio: '',
     },
   });
 
-  function onSubmit(values: z.infer<typeof UserValidation>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
-  }
+  const onSubmit = async (values: z.infer<typeof UserValidation>) => {
+    await updateUser({
+      username: values.username,
+      name: values.name,
+      userId: user.id,
+      path: pathname,
+    });
+
+    if (pathname === '/profile/edit') {
+      router.back();
+    } else {
+      router.push('/');
+    }
+  };
 
   return (
     <Form {...form}>

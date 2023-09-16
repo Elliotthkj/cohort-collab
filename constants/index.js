@@ -20,8 +20,8 @@ export const sidebarLinks = [
   },
   {
     icon: <IoCreateOutline />,
-    route: '/create-thread',
-    label: 'Create Thread',
+    route: '/create-post',
+    label: 'Create Post',
   },
   {
     icon: <BsPeople />,

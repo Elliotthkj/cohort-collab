@@ -10,10 +10,10 @@ function LeftSidebar() {
   const router = useRouter();
 
   return (
-    <section>
+    <section className='h-full'>
       <div
         id='leftgreybox'
-        className='relative flex w-60 flex-1 flex-col gap-6 px-6 bg-gray-400 leftbar-height pt-4'
+        className='relative flex w-60 flex-1 flex-col gap-6 px-6 bg-gray-400 pt-4 h-full'
       >
         {sidebarLinks.map((link) => (
           <Link
