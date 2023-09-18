@@ -19,11 +19,6 @@ export const sidebarLinks = [
     label: 'Search',
   },
   {
-    icon: <AiOutlineHeart />,
-    route: '/activity',
-    label: 'Activity',
-  },
-  {
     icon: <BsPeople />,
     route: '/cohorts',
     label: 'Cohorts',

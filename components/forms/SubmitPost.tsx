@@ -19,6 +19,7 @@ import { Textarea } from '../ui/textarea';
 // import { updateUser } from '@/lib/actions/user.actions';
 import { PostValidation } from '@/lib/validations/post';
 import { create } from 'domain';
+import { createPost } from '@/lib/actions/post.actions';
 
 interface Props {
   user: {
@@ -44,7 +45,14 @@ function SubmitPost({ userId }: { userId: string }) {
     },
   });
 
-  const onSubmit = async () => {
+  const onSubmit = async (values: z.infer<typeof PostValidation>) => {
+    await createPost({
+      text: values.post,
+      author: userId,
+      path: pathname,
+    });
+
+    router.push('/')
   };
 
   return (
