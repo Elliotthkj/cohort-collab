@@ -9,6 +9,11 @@ export const sidebarLinks = [
     label: 'Home',
   },
   {
+    icon: <IoCreateOutline />,
+    route: '/create-post',
+    label: 'Create Post',
+  },
+  {
     icon: <AiOutlineSearch />,
     route: '/search',
     label: 'Search',
@@ -17,11 +22,6 @@ export const sidebarLinks = [
     icon: <AiOutlineHeart />,
     route: '/activity',
     label: 'Activity',
-  },
-  {
-    icon: <IoCreateOutline />,
-    route: '/create-post',
-    label: 'Create Post',
   },
   {
     icon: <BsPeople />,
@@ -36,13 +36,8 @@ export const sidebarLinks = [
 ];
 
 export const profileTabs = [
-  { value: 'threads', label: 'Threads', icon: '' },
+  { value: 'posts', label: 'Posts', icon: '' },
   { value: 'replies', label: 'Replies', icon: '' },
   { value: 'tagged', label: 'Tagged', icon: '' },
 ];
 
-export const communityTabs = [
-  { value: 'threads', label: 'Threads', icon: '' },
-  { value: 'members', label: 'Members', icon: '' },
-  { value: 'requests', label: 'Requests', icon: '' },
-];

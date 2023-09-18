@@ -22,12 +22,12 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang='en'>
-        <body className={`${inter.className} h-full`}>
+      <html lang='en' className='min-h-screen h-full'>
+        <body className={`${inter.className} h-full m-0 p-0 overflow-y-hidden`}>
           {/* <h1>Hello World!</h1> */}
           <Topbar />
 
-          <main className='flex flex-row bg-black h-full'>
+          <main className='flex flex-row bg-black h-[calc(100%-64px)]'>
             <LeftSidebar />
 
             <section className='h-full'>
