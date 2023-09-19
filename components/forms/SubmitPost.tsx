@@ -57,14 +57,14 @@ function SubmitPost({ userId }: { userId: string }) {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8 m-10'>
+      <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8 m-10 w-full'>
         <FormField
           control={form.control}
           name='post'
           render={({ field }) => (
             <FormItem className='flex flex-col w-full'>
               <FormLabel>Content</FormLabel>
-              <FormControl className='no-focus border border-grey-700 bg-gray-900 text-white'>
+              <FormControl className='no-focus border border-gray-700 bg-gray-900 text-white w-full'>
                 <Textarea rows={10} {...field} />
               </FormControl>
               <FormMessage />
