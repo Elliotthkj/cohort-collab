@@ -23,7 +23,9 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang='en' className='min-h-screen h-full w-full'>
-        <body className={`${inter.className} h-full m-0 p-0 overflow-y-hidden w-full`}>
+        <body
+          className={`${inter.className} h-full m-0 p-0 overflow-y-hidden w-full`}
+        >
           {/* <h1>Hello World!</h1> */}
           <Topbar />
 

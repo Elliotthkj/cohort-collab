@@ -57,6 +57,10 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
     }
   };
 
+  const handleSkipClick = () => {
+    router.push('/');
+  };
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
@@ -77,7 +81,6 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
             </FormItem>
           )}
         />
-
         <FormField
           control={form.control}
           name='username'
@@ -96,8 +99,18 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
             </FormItem>
           )}
         />
-
-        <Button type='submit'>Submit</Button>
+        <div className='flex space-x-4'>
+          <Button type='submit' className='bg-green-500'>
+            Submit
+          </Button>
+          <Button
+            type='button'
+            className='bg-red-500'
+            onClick={handleSkipClick}
+          >
+            Skip
+          </Button>
+        </div>{' '}
       </form>
     </Form>
   );
