@@ -17,6 +17,7 @@ import * as z from 'zod';
 import { Button } from '@/components/ui/button';
 import { updateUser } from '@/lib/actions/user.actions';
 import { usePathname, useRouter } from 'next/navigation';
+import { Textarea } from '../ui/textarea';
 
 interface Props {
   user: {
@@ -25,7 +26,6 @@ interface Props {
     username: string;
     name: string;
     bio: string;
-    image: string;
   };
   btnTitle: string;
 }
@@ -34,11 +34,12 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const form = useForm({
+  const form = useForm<z.infer<typeof UserValidation>>({
     resolver: zodResolver(UserValidation),
     defaultValues: {
-      name: '',
-      username: '',
+      name: user?.name ? user.name : '',
+      username: user?.username ? user.username : '',
+      bio: user?.bio ? user.bio : '',
     },
   });
 
@@ -48,6 +49,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
       name: values.name,
       userId: user.id,
       path: pathname,
+      bio: values.bio,
     });
 
     if (pathname === '/profile/edit') {
@@ -92,6 +94,24 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                   type='text'
                   className='no-focus'
                   placeholder='This is your public display name (2-30 characters)'
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name='bio'
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Bio</FormLabel>
+              <FormControl>
+                <Textarea
+                  rows={5}
+                  className='no-focus bg-white'
+                  placeholder='Tell everyone about yourself!'
                   {...field}
                 />
               </FormControl>

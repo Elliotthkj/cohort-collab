@@ -9,6 +9,7 @@ interface Params {
   username: string;
   name: string;
   path: string;
+  bio: string;
 }
 
 export async function updateUser({
@@ -16,6 +17,7 @@ export async function updateUser({
   username,
   name,
   path,
+  bio,
 }: Params): Promise<void> {
   connectToDB();
 
@@ -25,6 +27,7 @@ export async function updateUser({
       {
         username: username.toLowerCase(),
         name,
+        bio,
         onboarded: true,
       },
       { upsert: true }

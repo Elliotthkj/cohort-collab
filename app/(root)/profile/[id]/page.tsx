@@ -17,6 +17,7 @@ async function Page({ params }: { params: { id: string } }) {
         authUserId={user.id}
         name={userInfo.name}
         username={userInfo.username}
+        bio={userInfo.bio}
       />
     </section>
   );

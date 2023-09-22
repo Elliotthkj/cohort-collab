@@ -4,6 +4,7 @@ const userSchema = new mongoose.Schema({
   id: { type: String, required: true },
   username: { type: String, required: true, unique: true },
   name: { type: String, required: true },
+  bio: String,
   posts: [
     {
       type: mongoose.Schema.Types.ObjectId,
