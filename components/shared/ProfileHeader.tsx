@@ -1,5 +1,8 @@
 import Link from 'next/link';
 import { AiOutlineEdit } from 'react-icons/ai';
+import { currentUser } from '@clerk/nextjs';
+import { fetchUser } from '@/lib/actions/user.actions';
+import { redirect } from 'next/navigation';
 
 interface Props {
   accountId: string;
@@ -9,20 +12,35 @@ interface Props {
   bio: string;
 }
 
-const ProfileHeader = ({ accountId, authUserId, name, username, bio }: Props) => {
+const ProfileHeader = async ({
+  accountId,
+  authUserId,
+  name,
+  username,
+  bio,
+}: Props) => {
+  const user = await currentUser();
+  if (!user) return null;
+
+  const userInfo = await fetchUser(user.id);
+  if (!userInfo?.onboarded) redirect('/onboarding');
+
+  const isCurrentUser = user.id === userInfo.id;
+
   return (
     <div className='flex w-full flex-col justify-start m-10'>
-      {/* <h1 className="text-white">Profile Header</h1> */}
       <div className='flex items-center justify-between'>
         <div className='flex items-center gap-3'>
           <div className='flex-1'>
             <h2 className='flex text-4xl font-bold text-white'>
               {name}
-              <Link href='/profile/edit'>
-                <div id='AiOutlineEdit' className='ml-4 mt-3 text-2xl'>
-                  <AiOutlineEdit />
-                </div>
-              </Link>
+              {isCurrentUser && (
+                <Link href='/profile/edit'>
+                  <div id='AiOutlineEdit' className='ml-4 mt-3 text-2xl'>
+                    <AiOutlineEdit />
+                  </div>
+                </Link>
+              )}
             </h2>
 
             <p className='text-gray-300'>@{username}</p>
