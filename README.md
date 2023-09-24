@@ -17,6 +17,7 @@ CohortCollab is a social media platform designed for connecting and collaboratin
 1. Select sign in
 2. Complete profile setup
 3. Select "Create Post" then submit a post
+4. Select "Profile" or click on your name to view/edit your profile
 
 ## Features
 
