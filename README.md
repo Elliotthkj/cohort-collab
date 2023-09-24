@@ -22,7 +22,7 @@ CohortCollab is a social media platform designed for connecting and collaboratin
 
 - **Log in**: Users can securely log in to their accounts.
 - **Create Profile**: Users can easily create their unique profiles.
-- **Edit Profile**: _(Work in progress)_ - Users will soon be able to customize their profiles.
+- **Edit Profile**: Users can customize their profile/bio.
 - **Create Posts**: Users can share their thoughts and updates with the community.
 - **Add Comments to Posts**: _(Work in progress)_ - Engage in discussions by commenting on posts.
 - **Delete Posts**: _(Work in progress)_ - Remove your posts when needed.
